@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<div th:fragment="create">
+    <div class="container-create">
+        <form method="post" th:action="@{${url}}">
+            <table>
+                <tr>
+                    <td class="create-title">Name:</td>
+                    <td class="create-value">
+                        <label><input class="create-name-input" type="text" th:name="name" th:value="${name}"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="create-title">Necessary:</td>
+                    <td class="create-value">
+                        <label><input type="checkbox" th:checked="${necessary}" th:name="necessary"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="create-title">Quantity:</td>
+                    <td class="create-value">
+                        <label><input class="create-quantity-input" type="text" th:name="quantity" th:value="${quantity}"></label>
+                    </td>
+                </tr>
+            </table>
+            <div class="create-save">
+                <button type="submit">Save</button>
+            </div>
+            <div class="create-error">
+                <span th:name="error" th:text="${error}"></span>
+            </div>
+        </form>
+    </div>
+</div>
+</html>

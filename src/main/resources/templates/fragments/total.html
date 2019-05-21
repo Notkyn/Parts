@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<div th:fragment="total">
+    <div class="container-total">
+        <table>
+            <tr>
+                <td class="table-total-name">Computers available:</td>
+                <td class="table-total-value" th:text="${total}">0</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</html>

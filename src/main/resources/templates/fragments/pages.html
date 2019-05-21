@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<div th:fragment="pages">
+    <div class="container-pages">
+        <table>
+            <tr>
+                <td></td>
+                <td class="pages-value">
+                    <a href="#" th:href="@{'/?page={page}'(page=${pageFirst})}"><<</a>
+                </td>
+                <td class="pages-value" th:if="${pageBack} != 0">
+                    <a href="#" th:href="@{'/?page={page}'(page=${pageBack})}" th:text="${pageBack}"></a>
+                </td>
+                <td class="pages-value" id="main-page" th:text="${pageCurrent}">
+                </td>
+                <td class="pages-value" th:if="${pageNext} != 0">
+                    <a href="#" th:href="@{'/?page={page}'(page=${pageNext})}" th:text="${pageNext}"></a>
+                </td>
+                <td class="pages-value">
+                    <a href="#" th:href="@{'/?page={page}'(page=${pageLast})}">>></a>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</html>

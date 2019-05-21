@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<div th:fragment="list">
+    <div class="container-list">
+        <div class="container-filter">
+            <form method="post" th:action="@{/}">
+                <div class="filter-name">Filter: </div>
+                <div class="filter-select">
+                    <label><select th:name="filter">
+                        <option>All items</option>
+                        <option>Only necessary items</option>
+                        <option>Other items</option>
+                    </select></label>
+                </div>
+                <div class="filter-button"><button type="submit">Ok</button></div>
+            </form>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td class="table-name">Name</td>
+                    <td class="table-necessary">Necessary</td>
+                    <td class="table-quantity">Quantity</td>
+                    <td class="table-edit"></td>
+                    <td class="table-delete"></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="part : ${all_parts}">
+                    <td class="table-name" th:text="${part.name}">#</td>
+                    <td class="table-necessary">
+                        <span th:if="${part.necessary} == true">Да</span>
+                        <span th:if="${part.necessary} == false">Нет</span>
+                    </td>
+                    <td class="table-quantity" th:text="${part.quantity}">#</td>
+                    <td class="table-edit">
+                        <a href="#" th:href="@{'/edit?id={id}'(id=${part.id})}">E</a>
+                    </td>
+                    <td class="table-delete">
+                        <a href="#" th:href="@{'/delete?id={id}'(id=${part.id})}">D</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</html>

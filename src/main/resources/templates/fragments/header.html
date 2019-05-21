@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<div class="container-header" th:fragment="header">
+    <div class="header-title">
+        <a href="#" th:href="@{/}">Computer parts</a>
+    </div>
+    <div class="header-add">
+        <a href="#" th:href="@{/edit}">Add</a>
+    </div>
+    <div class="header-search">
+        <form method="post" th:action="@{/}">
+            <div class="search-container-input">
+                <label><input type="text" th:name="search"></label>
+            </div>
+            <div class="search-container-button">
+                <label><button type="submit">Search</button></label>
+            </div>
+        </form>
+    </div>
+</div>
+</html>
